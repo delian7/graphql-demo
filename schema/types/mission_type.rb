@@ -7,6 +7,6 @@ module Types
     field :year, Integer, null: false
     field :success, Boolean, null: false
     field :rocket, Types::RocketType, null: true
-    field :astronauts, [Types::AstronautType], null: true
+    field :astronauts, [ Types::AstronautType ], null: true
   end
 end

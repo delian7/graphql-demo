@@ -21,7 +21,7 @@ RSpec.describe 'GraphQL Query: missions', type: :request do
   end
 
   it 'returns a list of missions' do
-    allow(Resolvers::MissionResolver).to receive(:fetch_all).and_return([
+    allow_any_instance_of(Resolvers::MissionResolver).to receive(:fetch_all).and_return([
       { 'id' => 'm-001', 'name' => 'Apollo 11', 'success' => true }
     ])
 
