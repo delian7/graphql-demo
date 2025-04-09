@@ -20,5 +20,6 @@ end
 
 group :development, :test do
   gem "byebug"
+  gem "rack-test"
   gem "rspec"
 end

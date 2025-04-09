@@ -1,6 +1,12 @@
 require 'rack'
 require 'graphql'
+require_relative 'schema/types/base_object'
+require_relative 'schema/types/rocket_type'
+require_relative 'schema/types/astronaut_type'
+require_relative 'schema/types/mission_type'
 require_relative './schema/schema'
+require_relative 'resolvers/mission_resolver'
+
 
 class App
   def self.call(env)
@@ -15,9 +21,9 @@ class App
         operation_name: body["operationName"]
       )
 
-      [200, { "Content-Type" => "application/json" }, [result.to_json]]
+      [ 200, { "Content-Type" => "application/json" }, [ result.to_json ] ]
     else
-      [405, {}, ["Method Not Allowed"]]
+      [ 405, {}, [ "Method Not Allowed" ] ]
     end
   end
 end
