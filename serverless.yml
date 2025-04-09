@@ -1,0 +1,28 @@
+service: graphql-space-demo
+
+provider:
+  name: aws
+  runtime: ruby2.7
+  region: us-east-1
+  environment:
+    DYNAMODB_TABLE_MISSIONS: missions
+    DYNAMODB_TABLE_ROCKETS: rockets
+    DYNAMODB_TABLE_ASTRONAUTS: astronauts
+
+functions:
+  graphql:
+    handler: handler.app
+    events:
+      - http:
+          path: graphql
+          method: post
+      - http:
+          path: graphql
+          method: get
+
+plugins:
+  - serverless-rack
+
+custom:
+  rack:
+    appPath: rack/config.ru
