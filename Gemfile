@@ -5,6 +5,11 @@ source "https://rubygems.org"
 gem "dotenv"
 gem "rubocop-rails-omakase", require: false
 
+gem "graphql"
+gem "rack"
+gem "serverless-rack"
+gem "aws-sdk-dynamodb"
+
 group :development do
   gem "rubocop-rspec"
 end
